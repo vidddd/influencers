@@ -1,0 +1,25 @@
+<div class="container top30">
+<div class="row">
+   <div class="col-md-3">
+     <label for="term">Search Influencers in instagram</label>
+     <input
+       (keyup)="searchTerm$.next($event.target.value)">
+
+     <hr>
+   </div>
+   </div>
+  <div class="row">
+    <div class="card-deck" *ngIf="results">
+    <div class="card" style="width: 20rem;"
+                                           *ngFor="let influencer of results | slice:0:9">
+      <img class="card-img-top" [src]="influencer.profile_picture" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ influencer.username }}</h4>
+        <p class="card-text"></p>
+        <a [routerLink]="['/add/influencer', influencer.id]" class="btn btn-primary">Add Influencer</a>
+      </div>
+    </div>
+  </div>
+
+   </div>
+</div>

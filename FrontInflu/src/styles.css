@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card {
+  margin-botton: 10px !important;
+  width: 200px;
+}
+
+.card  img{
+  height: 200px !important;
+}
