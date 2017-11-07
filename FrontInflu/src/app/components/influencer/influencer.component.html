@@ -1,3 +1,21 @@
-<p>
-  influencer works!
-</p>
+<div class="container influencer">
+
+  <div class="row">
+    <div class="col-md-5">
+        <h2>{{ _apiService.influencer?.username }}</h2>
+        <img [src]="_apiService.influencer?.profile_picture" alt="" class="rounded">
+        <p>{{ _apiService.influencer?.bio }}</p>
+    </div>
+    <div class="col-md-7">
+      <ul class="list-group">
+        <li class="list-group-item">Fullname: {{ _apiService.influencer?.full_name }}</li>
+        <li class="list-group-item">website: {{ _apiService.influencer?.website }}</li>
+        <li class="list-group-item">Posts: {{ _apiService.influencer?.media }}</li>
+        <li class="list-group-item">Follows: {{ _apiService.influencer?.follows }}</li>
+        <li class="list-group-item">Followeb By: {{ _apiService.influencer?.followed_by }}</li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

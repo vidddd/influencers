@@ -12,7 +12,7 @@
     <div class="card-deck" *ngIf="results">
     <div class="card" style="width: 20rem;"
                                            *ngFor="let influencer of results | slice:0:9">
-      <img class="card-img-top" [src]="influencer.profile_picture" alt="Card image cap">
+      <img class="card-img-top" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
       <div class="card-block">
         <h4 class="card-title">{{ influencer.username }}</h4>
         <p class="card-text"></p>

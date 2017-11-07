@@ -17,9 +17,7 @@ export class InfluencersComponent implements OnInit {
   }
 
   loadInfluencers() {
-  let influ;
-
-  this._apiService.getInfluencers()
+    this._apiService.getInfluencers()
                  .subscribe();
 
   }

@@ -15,8 +15,11 @@ export class SearchComponent {
   constructor( private _instaService:InstagramService ) {
 
     this._instaService.search(this.searchTerm$)
-      .subscribe(results => {
-        this.results = results.data;
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(res => {
+        console.log(res);
+        this.results = res.data;
       });
 
    }

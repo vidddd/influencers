@@ -1,16 +1,16 @@
 <div class="container">
 <div class="row">
         <h2>Influencers</h2>
-</div>
+</div><hr>
 <div class="row">
-  <div class="card-deck">
+  <div class="card-columns">
     <div class="card" style="width: 20rem;"
                                           *ngFor="let influencer of _apiService.influencers2">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">{{ influencer.username }}</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <img class="card-img-top img-fluid" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
+            <div class="card-block">
+              <h4 class="card-title">{{ influencer.username }}</h4>
+              <p class="card-text">{{ influencer.bio }}</p>
+              <a [routerLink]="['/view/influencer', influencer.id]" class="btn btn-primary">Details</a>
           </div>
     </div>
   </div>

@@ -14,8 +14,6 @@ export class InstagramService {
   private apiLink:string = environment.API_ENDPOINT; // "http://localhost:3000";
   private searchUrl:string = 'https://api.instagram.com/v1/users/search?q=';
 
-  //{username}&access_token={$access_token}';
-
   constructor(private http: Http) { }
 
   search(terms: Observable<string>) {
@@ -29,11 +27,12 @@ export class InstagramService {
        let url = this.searchUrl + term + '&access_token=' + this.auth_token;
 
        return this.http
-             .get( url )
-             .map(res => { res.json()
-
-              })
-             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+              .get( url )
+              .map(res => {
+                
+                res.json()
+                })
+                .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
    }
 }

@@ -9,13 +9,14 @@ export class ApiService {
 
   influencers:any[] = [];
   influencers2:any[] = [];
-  results: Object;
+  influencer: any;
+
   urlGet:string = "https://influencers.tbwainnovation.com/api/get/influencers";
+  urlGetUno:string = "https://influencers.tbwainnovation.com/api/get/influencer/";
   urlBusqueda:string = "https://influencers.tbwainnovation.com/api/search/influencers/";
   urlAddInfluencer:string  = "https://influencers.tbwainnovation.com/api/add/influencer/";
 
   constructor(private http:Http) { }
-
 
   searchInfluencers( term:string ): any{
 
@@ -34,17 +35,29 @@ export class ApiService {
    return this.influencers;
   }
 
-  getInfluencers()  {
-    return this.http.get(this.urlGet)
+  getInfluencers(){
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    //headers.append('Access-Control-Allow-Headers', 'Content-Type');
+    //headers.append('Access-Control-Allow-Methods', 'GET');
+    //headers.append('Access-Control-Allow-Origin', '*');
+
+    return this.http.get(this.urlGet, { headers })
                     .map((res:Response) => {
                        //this.influencers2 = Array.of(res.json());
                        this.influencers2 = res.json();
-                       console.log("3333");
-                       console.log(this.influencers2);
                     })
-                    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+                    .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.getInfluencers'));
     }
 
+  getInfluencer(id:string)  {
+      let url = this.urlGetUno + id;
+      return this.http.get(url)
+                      .map((res:Response) => {
+                         this.influencer = res.json();
+                      })
+                      .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencer'));
+  }
   /*
         _id
       $id	"59f897ff30fd0461248b4567"
@@ -68,16 +81,15 @@ export class ApiService {
     */
 
   addInfluencer(id: string): void {
+        let headers = new Headers();
+        headers.append('Accept', 'application/json');
 
-    let headers = new Headers();
-    headers.append('Accept', 'application/json');
-
-    let url = this.urlAddInfluencer + id;
-      console.log(url);
-    this.http.get(url, { headers })
-           .subscribe( res=>{
-              console.log( res.json());
-          });
+        let url = this.urlAddInfluencer + id;
+          console.log(url);
+        this.http.get(url, { headers })
+               .subscribe( res=>{
+                  console.log( res.json());
+              });
   }
 
 }

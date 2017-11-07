@@ -10,6 +10,7 @@ const app_routes: Routes = [
   { path: 'influencers', component: InfluencersComponent },
   { path: 'influencer/:id', component: InfluencerComponent },
   { path: 'add/influencer/:id', component: InfluencerComponent },
+  { path: 'view/influencer/:id', component: InfluencerComponent },
   { path: 'search', component: SearchComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

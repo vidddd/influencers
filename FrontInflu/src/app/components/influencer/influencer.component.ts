@@ -12,13 +12,20 @@ export class InfluencerComponent implements OnInit {
   constructor(private _apiService:ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+               if(params['id']) {
+                 this._apiService.getInfluencer(params['id']).subscribe();
+               }
+      });
 
+  }
+
+  addInfluencer() {
     this.activatedRoute.params.subscribe((params: Params) => {
                if(params['id']) {
                  this._apiService.addInfluencer(params['id']);
                }
       });
-
   }
 
 }
