@@ -7,20 +7,22 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: './search.component.html'
 })
 
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
   results: Object;
   searchTerm$ = new Subject<string>();
+  term:string = "";
 
   constructor( private _instaService:InstagramService ) {
+   }
 
-    this._instaService.search(this.searchTerm$)
-      .debounceTime(400)
-      .distinctUntilChanged()
-      .subscribe(res => {
-        console.log(res);
-        this.results = res.data;
-      });
+   ngOnInit(){ }
+
+   searchInflu() {
+     this._instaService.searchInfluencers(this.term)
+                          .debounceTime(400)
+                          .distinctUntilChanged()
+                          .subscribe();
 
    }
 }

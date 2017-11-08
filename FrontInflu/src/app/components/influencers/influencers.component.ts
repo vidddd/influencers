@@ -9,6 +9,7 @@ import { ApiService } from './../../services/api.service';
 export class InfluencersComponent implements OnInit {
 
   influencers3:any[] = [];
+  title: string = "Influencers";
 
   constructor(private _apiService:ApiService) { }
 

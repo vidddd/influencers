@@ -11,12 +11,14 @@ import { InstagramAuthenticationCallbackComponent } from './components/instagram
 import { InfluencersComponent } from './components/influencers/influencers.component';
 import { SearchComponent } from './components/search/search.component';
 import { InfluencerComponent } from './components/influencer/influencer.component';
+import { SidebarComponent } from './components/layout/sidebar.component';
 
 import { InstagramService } from './services/instagram.service';
 import { ApiService } from './services/api.service';
 
 import { APP_ROUTING } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { KeysPipe } from './pipes/keys.pipe';
     InfluencersComponent,
     SearchComponent,
     InfluencerComponent,
-    KeysPipe
+    KeysPipe,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

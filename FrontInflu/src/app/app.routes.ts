@@ -9,8 +9,8 @@ const app_routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'influencers', component: InfluencersComponent },
   { path: 'influencer/:id', component: InfluencerComponent },
-  { path: 'add/influencer/:id', component: InfluencerComponent },
   { path: 'view/influencer/:id', component: InfluencerComponent },
+  { path: 'add/influencer/:idins', component: InfluencerComponent },
   { path: 'search', component: SearchComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

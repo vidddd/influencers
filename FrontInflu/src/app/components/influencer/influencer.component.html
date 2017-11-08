@@ -8,11 +8,12 @@
     </div>
     <div class="col-md-7">
       <ul class="list-group">
-        <li class="list-group-item">Fullname: {{ _apiService.influencer?.full_name }}</li>
-        <li class="list-group-item">website: {{ _apiService.influencer?.website }}</li>
-        <li class="list-group-item">Posts: {{ _apiService.influencer?.media }}</li>
-        <li class="list-group-item">Follows: {{ _apiService.influencer?.follows }}</li>
-        <li class="list-group-item">Followeb By: {{ _apiService.influencer?.followed_by }}</li>
+        <li class="list-group-item"><b>Fullname:</b> {{ _apiService.influencer?.full_name }}</li>
+        <li class="list-group-item"><b>website:</b> {{ _apiService.influencer?.website }}</li>
+        <li class="list-group-item"><b>Is Bussines:</b> {{ _apiService.influencer?.is_business }}</li>
+        <li class="list-group-item"><b>Posts:</b> {{ _apiService.influencer?.counts?.media }}</li>
+        <li class="list-group-item"><b>Follows:</b> {{ _apiService.influencer?.counts?.follows }}</li>
+        <li class="list-group-item"><b>Followeb By: </b>{{ _apiService.influencer?.counts?.followed_by }}</li>
       </ul>
     </div>
   </div>

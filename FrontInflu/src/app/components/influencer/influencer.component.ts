@@ -9,23 +9,23 @@ import { ApiService } from './../../services/api.service';
 })
 export class InfluencerComponent implements OnInit {
 
-  constructor(private _apiService:ApiService, private activatedRoute: ActivatedRoute) { }
+  constructor(private _apiService:ApiService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-               if(params['id']) {
-                 this._apiService.getInfluencer(params['id']).subscribe();
-               }
+
+        if(params['id']) {
+            this._apiService.getInfluencer(params['id']).subscribe();
+
+        } else if (params['idins']) {
+
+            this._apiService.addInfluencer(params['idins']);
+
+             this.router.navigate(['influencers']);
+
+       }
       });
 
-  }
-
-  addInfluencer() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-               if(params['id']) {
-                 this._apiService.addInfluencer(params['id']);
-               }
-      });
   }
 
 }
