@@ -1,19 +1,26 @@
-<div class="container">
-<div class="row">
-        <h2>{{title}}</h2>
-</div><hr>
-<div class="row">
-  <div class="card-columns">
-    <div class="card" style="width: 20rem;"
-                                          *ngFor="let influencer of _apiService.influencers2">
-            <img class="card-img-top img-fluid" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
-            <div class="card-block">
-              <h4 class="card-title">{{ influencer.username }}</h4>
-              <p class="card-text">{{ influencer.bio }}</p>
-              <a [routerLink]="['/view/influencer', influencer.id]" class="btn btn-primary">Details</a>
-          </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-sm-6"
+        *ngFor="let influencer of _apiService.influencers2">
+        <div class="card card-influencer">
+            <div class="header">
+                <h4 class="title">@{{ influencer.username }}</h4>
+            </div>
+            <div class="content">
+                <div class="row imginflu">
+                  <img class="border-gray text-center" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
+                </div>
+                <div class="row content">
+                    <p class="description">{{ influencer.bio }}</p>
+                </div>
+                      <hr />
+                <div class="footer text-sm-right text-right">
+                         <a [routerLink]="['/view/influencer', influencer.id]" class="btn btn-fill btn-info"><span class="btn-label">
+	                                                <i class="ti-search"></i>
+	                                            Details</span></a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
- </div>
+   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ApiService } from './../../services/api.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ApiService } from './../../services/api.service';
   templateUrl: './influencers.component.html',
   styles: []
 })
-export class InfluencersComponent implements OnInit {
+export class InfluencersComponent implements OnInit, OnChanges {
 
   influencers3:any[] = [];
   title: string = "Influencers";
@@ -15,8 +15,11 @@ export class InfluencersComponent implements OnInit {
 
   ngOnInit() {
     this.loadInfluencers();
+    
   }
-
+  ngOnChanges() {
+    this.loadInfluencers();
+  }
   loadInfluencers() {
     this._apiService.getInfluencers()
                  .subscribe();

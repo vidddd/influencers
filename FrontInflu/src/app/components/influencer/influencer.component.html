@@ -1,22 +1,67 @@
-<div class="container influencer">
+<div class="row">
+  <div class="col-lg-4 col-md-5">
+    <div class="card card-user">
+      <div class="image"><img [src]="_apiService.influencer?.profile_picture"/></div>
+        <div class="content">
+          <div class="author">
+            <img class="avatar border-white" [src]="_apiService.influencer?.profile_picture" alt="..."/>
+            <h4 class="title">{{ _apiService.influencer?.full_name }}<br />
+              <a href="#"><small>@{{ _apiService.influencer?.username }}</small></a>
+            </h4>
+          </div>
+          <p class="description text-center">{{ _apiService.influencer?.bio }}  </p>
+          <p class="text-center"><a href="{{ _apiService.influencer?.website }}">{{ _apiService.influencer?.website }}</a></p>
+        </div>
+        <hr>
+        <div class="text-center">
+          <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+              <h5>{{ _apiService.influencer?.counts?.media | number }}<br /><small>Posts</small></h5>
+            </div>
+            <div class="col-md-4">
+              <h5>{{ _apiService.influencer?.counts?.follows | number }}<br /><small>Follows</small></h5>
+            </div>
+            <div class="col-md-3">
+              <h5>{{ _apiService.influencer?.counts?.followed_by | number }}<br /><small>Followeb By</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Lasts Posts</h4>
+        </div>
+        <div class="content">
+          <ul class="list-unstyled team-members">
+              <li *ngFor="let like of _instaService.mediarecent">
+                  <div class="row"><div class="col-xs-3">
+                      <div class="avatar">
+                            <img [src]="like.images.thumbnail.url" alt="Circle Image" class="img-circle img-responsive">
+                      </div>
+                    </div>
+                    <div class="col-xs-9"> @{{ like.user.username }}<br />
+                      <span class="text-primary"><small>{{ like.caption.text }}</small></span>
+                    </div>
 
-  <div class="row">
-    <div class="col-md-5">
-        <h2>{{ _apiService.influencer?.username }}</h2>
-        <img [src]="_apiService.influencer?.profile_picture" alt="" class="rounded">
-        <p>{{ _apiService.influencer?.bio }}</p>
+                 </div>
+              </li>
+            </ul>
+          </div>
+      </div>
     </div>
-    <div class="col-md-7">
-      <ul class="list-group">
-        <li class="list-group-item"><b>Fullname:</b> {{ _apiService.influencer?.full_name }}</li>
-        <li class="list-group-item"><b>website:</b> {{ _apiService.influencer?.website }}</li>
-        <li class="list-group-item"><b>Is Bussines:</b> {{ _apiService.influencer?.is_business }}</li>
-        <li class="list-group-item"><b>Posts:</b> {{ _apiService.influencer?.counts?.media }}</li>
-        <li class="list-group-item"><b>Follows:</b> {{ _apiService.influencer?.counts?.follows }}</li>
-        <li class="list-group-item"><b>Followeb By: </b>{{ _apiService.influencer?.counts?.followed_by }}</li>
-      </ul>
-    </div>
-  </div>
+        <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Edit Profile</h4>
+                            </div>
+                            <div class="content">
 
-
+                            </div>
+                        </div>
+                    </div>
+</div>
+<div class="row content">
+          <button type="button" class="btn btn-wd btn-default btn-fill btn-move-left"  (click)="back();">
+  	         <span class="btn-label"><i class="ti-angle-left"></i></span>Back
+  	      </button>
 </div>

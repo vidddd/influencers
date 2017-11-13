@@ -1,25 +1,29 @@
-<div class="container top30">
+<div class="container-fluid">
 <div class="row">
    <div class="col-md-3">
-     <label for="term">Search Influencers in instagram</label>
+     <label for="term"></label>
      <input [(ngModel)]="term"
             (keyup)="searchInflu(term)"
-     type="text" name="term" class="form-control">
+     type="text" name="term" class="form-control" placeholder="Search Influencers in instagram">
 
      <hr>
-   </div>
-   </div>
-  <div class="row">
-    <div class="card-columns" *ngIf="_instaService.influencers">
-    <div class="card" style="width: 20rem;"
-                                           *ngFor="let influencer of _instaService.influencers">
-      <img class="card-img-top" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
-      <div class="card-block">
-        <h4 class="card-title">{{ influencer.username }}</h4>
-        <p class="card-text"></p>
-        <a [routerLink]="['/add/influencer', influencer.id]" class="btn btn-primary">Add Influencer</a>
+   </div><div class="col-md-9"></div>
+  </div>
+  <div class="row" *ngIf="_instaService.influencers">
+      <div class="col-lg-2 col-sm-8"
+          *ngFor="let influencer of _instaService.influencers">
+      <div class="card card-influencer-search text-center">
+        <div class="content">
+            <img class="card-img-top" [src]="influencer.profile_picture" alt="{{ influencer.full_name }}">
+        </div>
+        <div class="content">
+            <h4 class="title">@{{ influencer.username }}</h4>
+        </div>
+        <div class="content">
+            <a [routerLink]="['/add/influencer', influencer.id]" class="btn btn-danger"><span class="btn-label">
+                                     <i class="ti-plus"></i> Add Influencer</span></a>
+        </div>
       </div>
-    </div>
   </div>
 
    </div>
