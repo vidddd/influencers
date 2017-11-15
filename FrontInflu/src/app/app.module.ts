@@ -20,7 +20,6 @@ import { APP_ROUTING } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     SearchComponent,
     InfluencerComponent,
     KeysPipe,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

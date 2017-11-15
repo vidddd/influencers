@@ -33,35 +33,43 @@
         </div>
         <div class="content">
           <ul class="list-unstyled team-members">
-              <li *ngFor="let like of _instaService.mediarecent">
-                  <div class="row"><div class="col-xs-3">
-                      <div class="avatar">
+              <li *ngFor="let like of _apiService?.influencer?.posts | slice:0:20">
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <div class="avatar2">
                             <img [src]="like.images.thumbnail.url" alt="Circle Image" class="img-circle img-responsive">
                       </div>
                     </div>
-                    <div class="col-xs-9"> @{{ like.user.username }}<br />
-                      <span class="text-primary"><small>{{ like.caption.text }}</small></span>
-                    </div>
+                    <div class="col-xs-8"> @{{ like.user?.username }}<br />
+                      <span class="text-primary">{{ like.caption?.text }}</span>
 
+                    </div>
+                 </div>
+                 <div class="row text-right content">
+                   <span>{{ like.created_time * 1000 | date:'medium' }}</span>
                  </div>
               </li>
             </ul>
           </div>
       </div>
     </div>
-        <div class="col-lg-8 col-md-7">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Edit Profile</h4>
-                            </div>
-                            <div class="content">
-
-                            </div>
-                        </div>
-                    </div>
+    <div class="col-lg-8 col-md-7">
+              <div class="card">
+                  <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                  </div>
+                  <div class="content">
+                        <pre>{{ _apiService?.influencer?.posts | json }}</pre>
+                  </div>
+              </div>
+    </div>
 </div>
 <div class="row content">
           <button type="button" class="btn btn-wd btn-default btn-fill btn-move-left"  (click)="back();">
   	         <span class="btn-label"><i class="ti-angle-left"></i></span>Back
   	      </button>
 </div>
+<script type="text/javascript">
+    alert();
+
+</script>

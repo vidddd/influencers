@@ -914,9 +914,10 @@ textarea.form-control {
   border: 0;
   border-radius: 0;
   color: #FFFFFF;
-  padding: 10px 15px;
+  padding: 20px 25px !important;
   font-size: 14px; }
-  .container .alert {
+
+.container .alert {
     border-radius: 4px; }
   .navbar .alert {
     border-radius: 0;
@@ -926,6 +927,7 @@ textarea.form-control {
     top: 85px;
     width: 100%;
     z-index: 3; }
+
   .navbar:not(.navbar-transparent) .alert {
     top: 70px; }
   .alert span[data-notify="icon"] {
@@ -2750,27 +2752,38 @@ textarea.form-control {
 
 
 
-    .card.influencer {
+.card.influencer {
 
-    }
-    .card-influencer .imginflu {
-      text-align: center;
-      vertical-align: middle;
-    }
-    .card-influencer .title{
-      font-size:1.5em;
-    }
+}
+.card-influencer .imginflu {
+    text-align: center;
+    vertical-align: middle;
+}
 
-    .card-influencer img, .card-influencer-search img {
-      width: 160px;
-      height: 160px;
-      overflow: hidden;
-      border-radius: 50%;
-      margin-right: 5px;
-    }
-    .card-influencer-search{
-      padding-bottom: 15px;
-    }
-    .card-influencer-search .title{
-      font-size:1.5em;
-    }
+.card-influencer .title{
+    font-size:1.5em;
+}
+
+.card-influencer img, .card-influencer-search img {
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.card-influencer-search{
+    padding-bottom: 15px;
+}
+
+.card-influencer-search .title{
+    font-size:1.5em;
+}
+
+.card .avatar2 {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}

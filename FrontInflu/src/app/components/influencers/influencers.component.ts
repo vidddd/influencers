@@ -3,8 +3,7 @@ import { ApiService } from './../../services/api.service';
 
 @Component({
   selector: 'app-influencers',
-  templateUrl: './influencers.component.html',
-  styles: []
+  templateUrl: './influencers.component.html'
 })
 export class InfluencersComponent implements OnInit, OnChanges {
 
@@ -13,16 +12,18 @@ export class InfluencersComponent implements OnInit, OnChanges {
 
   constructor(private _apiService:ApiService) { }
 
-  ngOnInit() {
-    this.loadInfluencers();
-    
-  }
-  ngOnChanges() {
-    this.loadInfluencers();
-  }
-  loadInfluencers() {
-    this._apiService.getInfluencers()
-                 .subscribe();
+    ngOnInit() {
+      this.loadInfluencers();
+    }
 
-  }
+    ngOnChanges() {
+      this.loadInfluencers();
+    }
+
+    loadInfluencers() {
+      this._apiService.getInfluencers()
+                      .distinctUntilChanged()
+                      .subscribe();
+
+    }
 }

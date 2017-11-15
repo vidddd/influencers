@@ -22,8 +22,6 @@ export class ApiService {
 
     let headers = new Headers();
     headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Headers', 'Content-Type');
-    headers.append('Access-Control-Allow-Methods', 'GET');
     headers.append('Access-Control-Allow-Origin', '*');
 
     let url = this.urlBusqueda + term;
@@ -38,9 +36,7 @@ export class ApiService {
   getInfluencers(){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
-    //headers.append('Access-Control-Allow-Headers', 'Content-Type');
-    //headers.append('Access-Control-Allow-Methods', 'GET');
-    //headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.get(this.urlGet, { headers })
                     .map((res:Response) => {
@@ -58,27 +54,6 @@ export class ApiService {
                       })
                       .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencer'));
   }
-  /*
-        _id
-      $id	"59f897ff30fd0461248b4567"
-      id	"31344485"
-      username	"elsantto"
-      profile_picture	"https://scontent.cdninstagram.com/t51.2885-19/s150x150/18645315_1696646680631061_6357435764342521856_a.jpg"
-      full_name	"David San Blas"
-      bio	"Un cerdo que no vuela, solo es un cerdo...\nFuji XT10 / Xiaomi YI 4K / Samsung Galaxy Note 4"
-      website	"https://youtu.be/lKod3HkFcXU"
-      is_business	false
-      counts
-      media	635
-      follows	150
-      followed_by	229
-      */
-    /*
-    full_name: "David Poncelas"
-    id: "1954639"
-    profile_picture: "https://scontent.cdninstagram.com/t51.2885-19/s150x150/12407198_1663702457204371_2136763155_a.jpg"
-    username: "poncelas"
-    */
 
   addInfluencer(id: string): void {
         let headers = new Headers();
