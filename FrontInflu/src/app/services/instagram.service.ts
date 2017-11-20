@@ -1,6 +1,6 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -21,9 +21,15 @@ export class InstagramService {
 
 
   searchInfluencers(term:string){
+
+    let headers = new Headers();
+      //headers.append('Accept', 'application/json');
+    //  headers.append('Access-Control-Allow-Headers', 'Content-Type');
+      //headers.append("Access-Control-Allow-Origin", "http://localhost:4200");
+
       let url = this.searchUrl + term + '&access_token=' + this.auth_token;
 
-      return this.http.get(url)
+      return this.http.get(url, { headers })
                         .map( res => { this.influencers = res.json().data })
   }
 

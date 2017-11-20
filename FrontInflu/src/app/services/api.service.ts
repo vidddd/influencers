@@ -47,23 +47,27 @@ export class ApiService {
     }
 
   getInfluencer(id:string)  {
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+
       let url = this.urlGetUno + id;
-      return this.http.get(url)
+      return this.http.get(url, { headers })
                       .map((res:Response) => {
                          this.influencer = res.json();
                       })
                       .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencer'));
   }
 
-  addInfluencer(id: string): void {
+  addInfluencer(id: string) {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
-
+        headers.append('Access-Control-Allow-Origin', '*');
         let url = this.urlAddInfluencer + id;
           console.log(url);
         this.http.get(url, { headers })
                .subscribe( res=>{
-                  console.log( res.json());
+                  return res.json();
               });
   }
 
