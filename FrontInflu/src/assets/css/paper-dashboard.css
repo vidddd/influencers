@@ -616,9 +616,7 @@ hr {
     border-color: #F3BB45; }
     .navbar .navbar-nav > li > a.btn-warning:hover .caret, .navbar .navbar-nav > li > a.btn-warning:focus .caret, .navbar .navbar-nav > li > a.btn-warning:active .caret, .navbar .navbar-nav > li > a.btn-warning.active .caret, .open > .navbar .navbar-nav > li > a.btn-warning.dropdown-toggle .caret, .btn-warning:hover .caret, .btn-warning:focus .caret, .btn-warning:active .caret, .btn-warning.active .caret, .open > .btn-warning.dropdown-toggle .caret {
       border-top-color: rgba(255, 255, 255, 0.7); }
-  .navbar .navbar-nav > li > a.btn-warning.disabled, .navbar .navbar-nav > li > a.btn-warning.disabled:hover, .navbar .navbar-nav > li > a.btn-warning.disabled:focus, .navbar .navbar-nav > li > a.btn-warning.disabled.focus, .navbar .navbar-nav > li > a.btn-warning.disabled:active, .navbar .navbar-nav > li > a.btn-warning.disabled.active, .navbar .navbar-nav > li > a.btn-warning:disabled, .navbar .navbar-nav > li > a.btn-warning:disabled:hover, .navbar .navbar-nav > li > a.btn-warning:disabled:focus, .navbar .navbar-nav > li > a.btn-warning:disabled.focus, .navbar .navbar-nav > li > a.btn-warning:disabled:active, .navbar .navbar-nav > li > a.btn-warning:disabled.active, .navbar .navbar-nav > li > a.btn-warning[disabled], .navbar .navbar-nav > li > a.btn-warning[disabled]:hover, .navbar .navbar-nav > li > a.btn-warning[disabled]:focus, .navbar .navbar-nav > li > a.btn-warning[disabled].focus, .navbar .navbar-nav > li > a.btn-warning[disabled]:active, .navbar .navbar-nav > li > a.btn-warning[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.active, .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {
-    background-color: transparent;
-    border-color: #F3BB45; }
+
   .navbar .navbar-nav > li > a.btn-warning.btn-fill, .btn-warning.btn-fill {
     color: #FFFFFF;
     background-color: #F3BB45;
@@ -915,7 +913,7 @@ textarea.form-control {
   border-radius: 0;
   color: #FFFFFF;
   padding: 20px 25px !important;
-  font-size: 14px; }
+  font-size: 17px; }
 
 .container .alert {
     border-radius: 4px; }
@@ -933,7 +931,7 @@ textarea.form-control {
   .alert span[data-notify="icon"] {
     font-size: 30px;
     display: block;
-    left: 15px;
+    left: 15px;<
     position: absolute;
     top: 50%;
     margin-top: -20px; }
@@ -943,8 +941,9 @@ textarea.form-control {
   .alert[data-notify="container"] {
     padding: 10px 10px 10px 20px;
     border-radius: 4px; }
-  .alert.alert-with-icon {
-    padding-left: 65px; }
+
+  .alert{
+    padding: 35px !important;  }
 
 .alert-info {
   background-color: #7CE4FE;
@@ -2781,9 +2780,21 @@ textarea.form-control {
 }
 
 .card .avatar2 {
+    padding: 10px;
     width: 150px;
     height: 150px;
     overflow: hidden;
     border-radius: 50%;
     margin-right: 5px;
+}
+.userlink {
+  font-size: 1.3em;
+  color:#222;
+  cursor:pointer;
+}
+
+
+.linkimgc:hover img {
+    cursor:pointer;
+    border: 5px solid #EA5252;
 }

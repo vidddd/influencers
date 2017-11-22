@@ -18,7 +18,8 @@ import { ApiService } from './services/api.service';
 
 import { APP_ROUTING } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
-
+import { ReversePipe } from './pipes/reverse.pipe';
+import { MediaComponent } from './components/media/media.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { KeysPipe } from './pipes/keys.pipe';
     InfluencerComponent,
     KeysPipe,
     SidebarComponent,
+    ReversePipe,
+    MediaComponent,
   ],
   imports: [
     BrowserModule,

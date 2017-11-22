@@ -10,6 +10,7 @@ export class ApiService {
   influencers:any[] = [];
   influencers2:any[] = [];
   influencer: any;
+  res: any;
 
   urlGet:string = "https://influencers.tbwainnovation.com/api/get/influencers";
   urlGetUno:string = "https://influencers.tbwainnovation.com/api/get/influencer/";
@@ -20,16 +21,16 @@ export class ApiService {
 
   searchInfluencers( term:string ): any{
 
-    let headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Origin', '*');
+      let headers = new Headers();
+      headers.append('Accept', 'application/json');
+      headers.append('Access-Control-Allow-Origin', '*');
 
-    let url = this.urlBusqueda + term;
+      let url = this.urlBusqueda + term;
 
-    this.http.get(url, { headers })
-           .subscribe( res=>{
-            this.influencers = res.json().data;
-          });
+      this.http.get(url, { headers })
+             .subscribe( res=>{
+              this.influencers = res.json().data;
+            });
    return this.influencers;
   }
 
@@ -59,16 +60,10 @@ export class ApiService {
                       .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencer'));
   }
 
-  addInfluencer(id: string) {
-        let headers = new Headers();
-        headers.append('Accept', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*');
+  addInfluencer(id: string):any {
         let url = this.urlAddInfluencer + id;
-          console.log(url);
-        this.http.get(url, { headers })
-               .subscribe( res=>{
-                  return res.json();
-              });
+
+        return this.http.get(url).map( res => res.json() );
   }
 
 }
