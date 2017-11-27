@@ -23,17 +23,7 @@ import { MediaComponent } from './components/media/media.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    InstagramAuthenticationCallbackComponent,
-    InfluencersComponent,
-    SearchComponent,
-    InfluencerComponent,
-    KeysPipe,
-    SidebarComponent,
-    ReversePipe,
+    AppComponent,NavbarComponent,FooterComponent,HomeComponent,InstagramAuthenticationCallbackComponent,InfluencersComponent,SearchComponent,InfluencerComponent,KeysPipe,SidebarComponent,ReversePipe,
     MediaComponent,
   ],
   imports: [

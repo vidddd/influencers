@@ -16,6 +16,7 @@ export class ApiService {
   urlGetUno:string = "https://influencers.tbwainnovation.com/api/get/influencer/";
   urlBusqueda:string = "https://influencers.tbwainnovation.com/api/search/influencers/";
   urlAddInfluencer:string  = "https://influencers.tbwainnovation.com/api/add/influencer/";
+  urlGetPost:string = "https://influencers.tbwainnovation.com/api/get/post/";
 
   constructor(private http:Http) { }
 
@@ -64,6 +65,13 @@ export class ApiService {
         let url = this.urlAddInfluencer + id;
 
         return this.http.get(url).map( res => res.json() );
+  }
+
+
+  /* devuelve un post de instagram */
+  getMedia(id: string) {
+      let url = this.urlGetPost + id;
+     return this.http.get(url).map( res => res.json() );
   }
 
 }

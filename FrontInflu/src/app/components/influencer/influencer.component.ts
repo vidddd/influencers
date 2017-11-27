@@ -1,18 +1,21 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { InstagramService } from './../../services/instagram.service';
 import  '../../../assets/js/influencer';
 declare var $: any;
-declare var swal: any;
+import { BsModalModule, BsModalService } from '../../../../node_modules/ng2-bs3-modal';
+
 
 @Component({
   selector: 'app-influencer',
   templateUrl: './influencer.component.html',
   styles: []
 })
-export class InfluencerComponent implements OnInit, AfterViewInit {
+export class InfluencerComponent implements OnInit {
 
+  media: any;
+  mediaid: string;
 
   constructor(private _apiService:ApiService, private _instaService:InstagramService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
@@ -59,15 +62,13 @@ export class InfluencerComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngAfterViewInit() {
-
-  }
-
   showMedia(id:string) {
-    console.log(id);
-    $('#myModal').modal({
-        show: true
-      })
+
+      this.mediaid = id;
+
+      $('#modalMedia').modal({
+          show: true
+        })
 
 
   }

@@ -1,3 +1,49 @@
-<p>
-  media works!
-</p>
+<div class="row">
+  <div class="col-md-12 content">
+      <div class="text-center" [ngSwitch]="post?.posts.type">
+        <div *ngSwitchCase="'image'"><img [src]="post?.posts.images.standard_resolution.url" alt="" class="img-fluid rounded"/></div>
+        <div *ngSwitchCase="'video'"> <video width="640" height="359" controls>
+                                      <source [src]="post?.posts.videos.standard_resolution.url" type="video/mp4">
+                                    </video>
+                              </div>
+        <div *ngSwitchDefault>output2</div>
+      </div>
+      <p class="lead">
+            {{ post?.posts.caption?.text }}
+      </p>
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row">Url Instagram</th>
+            <td>{{ post?.posts.link }}</td>
+            <th scope="row">Type</th>
+            <td>{{ post?.posts.type }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date Publish</th>
+            <td>{{ post?.posts.created_time * 1000 | date:'medium' }}</td>
+            <th scope="row">User has liked?</th>
+            <td>{{ post?.posts.user_has_liked }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Likes</th>
+            <td>{{ post?.posts.likes.count }}</td>
+            <th scope="row">Comments</th>
+            <td>{{ post?.posts.comments.count }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Tags</th>
+            <td colspan="3">{{ post?.posts.tags }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Location</th>
+            <td >{{ post?.posts.location }}</td>
+            <th scope="row">Attribution</th>
+            <td >{{ post?.posts.attribution }}</td>
+          </tr>
+        </tbody>
+  </table>
+  {{ post?.posts.id }}
+  </div>
+</div>

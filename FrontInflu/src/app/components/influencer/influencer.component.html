@@ -33,7 +33,7 @@
         </div>
         <div class="content">
           <ul class="list-unstyled team-members">
-              <li *ngFor="let like of _apiService?.influencer?.posts | reverse">
+              <li class="animate fadeIn" *ngFor="let like of _apiService?.influencer?.posts | reverse">
                   <div class="row">
                     <div class="col-xs-4">
                       <div class="avatar2">
@@ -48,6 +48,13 @@
                    <span>{{ like.created_time * 1000 | date:'medium' }}</span>
                  </div>
               </li>
+
+            </ul>
+          </div>
+          <div class="footer">
+            <ul class="pagination pagination-info">
+                <li><a href="#pdp"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                <li><a href="#pdp"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
             </ul>
           </div>
       </div>
@@ -58,9 +65,9 @@
                         <h4 class="title">Edit Profile</h4>
                   </div>
                   <div class="content">
-                        <pre>{{ _apiService?.influencer?.posts | json }}</pre>
+                        <pre></pre>
                   </div>
-              </div>
+                </div>
     </div>
 </div>
 <div class="row content">
@@ -68,3 +75,24 @@
   	         <span class="btn-label"><i class="ti-angle-left"></i></span>Back
   	      </button>
 </div>
+
+    <!-- MEdia modal -->
+          <div class="modal fade bd-example-modal-lg" id="modalMedia" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Post Instagram</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                    <div class="modal-body">
+                    <app-media [id]="mediaid"></app-media>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+  <!-- Media modal -->
