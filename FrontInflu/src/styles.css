@@ -6,3 +6,12 @@
 .modal-backdrop {
   z-index: 1 !important;
 }
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.card .footer button{
+  cursor:pointer;
+}

@@ -6,16 +6,19 @@ import  '../../../assets/js/influencer';
 declare var $: any;
 import { BsModalModule, BsModalService } from '../../../../node_modules/ng2-bs3-modal';
 
-
 @Component({
   selector: 'app-influencer',
   templateUrl: './influencer.component.html',
   styles: []
 })
+
 export class InfluencerComponent implements OnInit {
 
+  id: string;
+  page: number = 0;
   media: any;
   mediaid: string;
+
 
   constructor(private _apiService:ApiService, private _instaService:InstagramService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
@@ -23,7 +26,9 @@ export class InfluencerComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
         // VER INFLUENCER
         if(params['id']) {
-          this._apiService.getInfluencer(params['id']).subscribe();
+
+          this.id = params['id'];
+          this._apiService.getInfluencer(params['id'],params['page']).subscribe();
 
         // ADD INFLUENCER
         } else if (params['idins']) {
@@ -63,16 +68,26 @@ export class InfluencerComponent implements OnInit {
   }
 
   showMedia(id:string) {
-
       this.mediaid = id;
+      $('#modalMedia').modal()
+  }
 
-      $('#modalMedia').modal({
-          show: true
-        })
-
+  nextPosts(){
+    this.activatedRoute.params.subscribe((params: Params) => {
+        this.page = this.page +1;
+        this._apiService.getInfluencer(params['id'],this.page).subscribe();
+    });
 
   }
 
+  previousPosts(){
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.page = this.page -1;
+      this._apiService.getInfluencer(params['id'],this.page).subscribe();
+    });
+
+  }
   back() {
     this.router.navigate(['/influencers']);
   }

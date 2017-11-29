@@ -31,17 +31,17 @@
         <div class="header">
           <h4 class="title">Lasts Posts</h4>
         </div>
-        <div class="content">
+        <div class="content animated fadeIn low">
           <ul class="list-unstyled team-members">
               <li class="animate fadeIn" *ngFor="let like of _apiService?.influencer?.posts | reverse">
                   <div class="row">
-                    <div class="col-xs-4">
+                    <div class="col">
                       <div class="avatar2">
-                            <a class="linkimgc" (click)="showMedia(like.id)"><img [src]="like.images?.thumbnail.url" alt="Circle Image" class="img-circle img-responsive"></a>
+                            <a class="linkimgc" (click)="showMedia(like.id)"><img [src]="like.images?.thumbnail.url" alt="" class="img-circle img-responsive"></a>
                       </div>
                     </div>
-                    <div class="col-xs-8"><span class="userlink"><strong>@{{ like.user?.username }}</strong></span><br />
-                      <span class="text-primary">{{ like.caption?.text }}</span>
+                    <div class="col"><span class="userlink"><strong>@{{ like.user?.username }}</strong></span><br />
+                      <span class="text-primary text-justify">{{ like.caption?.text | slice:0:250 }}</span>
                     </div>
                  </div>
                  <div class="row text-right content">
@@ -51,10 +51,10 @@
 
             </ul>
           </div>
-          <div class="footer">
-            <ul class="pagination pagination-info">
-                <li><a href="#pdp"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-                <li><a href="#pdp"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+          <div class="footer content">
+            <ul class="pagination pagination-info pull-right">
+                <li *ngIf="page != 0"><a (click)="previousPosts()"><i class="fa fa-angle-double-left" aria-hidden="true"></i>Nexts Posts</a></li>
+                <li><a (click)="nextPosts()"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Previous Posts</a></li>
             </ul>
           </div>
       </div>
@@ -71,7 +71,7 @@
     </div>
 </div>
 <div class="row content">
-          <button type="button" class="btn btn-wd btn-default btn-fill btn-move-left"  (click)="back();">
+          <button type="button" class="btn btn-wd btn-default btn-fill btn-move-left" (click)="back();">
   	         <span class="btn-label"><i class="ti-angle-left"></i></span>Back
   	      </button>
 </div>

@@ -1,12 +1,14 @@
-<div class="row">
+<div *ngIf="post" class="row animated fadeIn">
   <div class="col-md-12 content">
       <div class="text-center" [ngSwitch]="post?.posts.type">
         <div *ngSwitchCase="'image'"><img [src]="post?.posts.images.standard_resolution.url" alt="" class="img-fluid rounded"/></div>
         <div *ngSwitchCase="'video'"> <video width="640" height="359" controls>
                                       <source [src]="post?.posts.videos.standard_resolution.url" type="video/mp4">
                                     </video>
-                              </div>
-        <div *ngSwitchDefault>output2</div>
+        </div>
+        <div *ngSwitchCase="'carousel'"><img [src]="post?.posts.images.standard_resolution.url" alt="" class="img-fluid rounded"/>
+        </div>
+        <div *ngSwitchDefault></div>
       </div>
       <p class="lead">
             {{ post?.posts.caption?.text }}
