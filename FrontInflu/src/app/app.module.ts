@@ -20,11 +20,16 @@ import { APP_ROUTING } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { MediaComponent } from './components/media/media.component';
+import { LoginComponent } from './components/login/login.component';
+
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import {BusyModule} from 'angular2-busy';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FooterComponent,HomeComponent,InstagramAuthenticationCallbackComponent,InfluencersComponent,SearchComponent,InfluencerComponent,KeysPipe,SidebarComponent,ReversePipe,
     MediaComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

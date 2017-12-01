@@ -60,7 +60,7 @@ export class ApiService {
   addInfluencer(id: string):any {
         let url = this.urlAddInfluencer + id;
 
-        return this.http.get(url).map( res => res.json() );
+        return this.http.get(url).toPromise().then( res => res.json());
   }
 
 
@@ -74,7 +74,7 @@ export class ApiService {
   deleteInfluencer(id: string) {
 
     let url = this.urlDeleteInfluencer + id;
-    return this.http.get(url).map( res => res.json() );
+    return this.http.get(url).toPromise().then( res => res.json());
   }
 
 }

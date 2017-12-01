@@ -25,11 +25,9 @@ export class InfluencersComponent implements OnInit, OnChanges {
       this._apiService.getInfluencers()
                       .distinctUntilChanged()
                       .subscribe();
-
     }
 
     showDelete(id: string) {
-
               swal({title: 'Are you sure?',
                        text: "It will be delete de Influencers and his posts and coments associated form database!! You won't be able to revert this!",
                        type: 'warning',
@@ -40,13 +38,17 @@ export class InfluencersComponent implements OnInit, OnChanges {
                        buttonsStyling: false
                      }).then((result) => {
                             if (result.value) {
-                                this.deleteInfluencer(id)
-                                /* swal( 'Deleted!','Your file has been deleted.','success'  )*/
+                              Promise.all([
+                                    this.deleteInfluencer(id)
+                                ]).then(value => {
+                                    swal( 'Deleted!','Influencer has been deleted from Database.','success');
+                                    this.loadInfluencers();
+                              });
                             }
-                          });
+              });
     }
 
     deleteInfluencer(id: string) {
-       this._apiService.deleteInfluencer(id).subscribe();
+       return this._apiService.deleteInfluencer(id);
     }
 }

@@ -32,7 +32,7 @@ export class InfluencerComponent implements OnInit {
 
         // ADD INFLUENCER
         } else if (params['idins']) {
-
+/*
             let disposable = this._apiService.addInfluencer(params['idins']).subscribe(data => {
                      // VIENE ERROR DE INSTAGRAM
                      if(data.meta) {
@@ -58,7 +58,7 @@ export class InfluencerComponent implements OnInit {
                               this.router.navigate(['influencer/'+params['idins']]);
                         }, 1500);
                      }
-             });
+             });*/
              /*
              setTimeout(()=>{
                disposable.unsubscribe();
@@ -84,7 +84,8 @@ export class InfluencerComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.page = this.page -1;
-      this._apiService.getInfluencer(params['id'],this.page).subscribe();
+
+        this._apiService.getInfluencer(params['id'],this.page).subscribe();
     });
 
   }

@@ -3,9 +3,10 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { InfluencersComponent } from './components/influencers/influencers.component';
 import { InfluencerComponent } from './components/influencer/influencer.component';
-
+import { LoginComponent } from './components/login/login.component';
 
 const app_routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'influencers', component: InfluencersComponent },
   { path: 'influencer/:id', component: InfluencerComponent },

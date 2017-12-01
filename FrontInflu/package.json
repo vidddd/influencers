@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "angular-custom-modal": "^1.0.0",
+    "angular2-busy": "^2.0.4",
     "core-js": "^2.4.1",
     "ng-bootstrap": "^1.6.3",
     "ng2-bs3-modal": "^0.13.0",

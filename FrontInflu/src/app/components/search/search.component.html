@@ -1,15 +1,18 @@
 <div class="container-fluid">
-<div class="row">
+   <div class="container-loader text-center" *ngIf="loading">
+       <div class="loader"></div>
+       <h3>Please wait .....</h3>
+   </div>
+<div class="row" *ngIf="!loading">
    <div class="col-md-3">
      <label for="term"></label>
      <input [(ngModel)]="term"
             (keyup)="searchInflu(term)"
      type="text" name="term" class="form-control" placeholder="Search Influencers in instagram">
-
      <hr>
    </div><div class="col-md-9"></div>
   </div>
-  <div class="row" *ngIf="_instaService.influencers">
+  <div class="row" *ngIf="_instaService.influencers && !loading">
       <div class="col-lg-2 col-sm-8"
           *ngFor="let influencer of _instaService.influencers">
       <div class="card card-influencer-search text-center">
@@ -20,8 +23,7 @@
             <h4 class="title">@{{ influencer.username }}</h4>
         </div>
         <div class="content">
-            <a [routerLink]="['/add/influencer', influencer.id]" class="btn btn-danger"><span class="btn-label">
-                                     <i class="ti-plus"></i> Add Influencer</span></a>
+            <button (click)="addInfluencer(influencer.id)" class="btn btn-danger btn-fill"><i class="ti-plus"></i> Add Influencer</button>
         </div>
       </div>
   </div>
