@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="login">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
         <app-sidebar></app-sidebar>
     </div>
@@ -12,4 +12,7 @@
       <app-footer></app-footer>
     </div>
 
+</div>
+<div class="wrapper wrapper-full-page" *ngIf="!login">
+          <app-login></app-login>
 </div>

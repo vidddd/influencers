@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ApiService } from './../../services/api.service';
+import { AuthenticationService } from './../../services/authentication.service';
 declare var swal: any;
 
 @Component({
@@ -11,9 +12,10 @@ export class InfluencersComponent implements OnInit, OnChanges {
   influencers3:any[] = [];
   title: string = "Influencers";
 
-  constructor(private _apiService:ApiService) { }
+  constructor(private _apiService:ApiService, private _service:AuthenticationService) { }
 
     ngOnInit() {
+      this._service.checkCredentials();
       this.loadInfluencers();
     }
 

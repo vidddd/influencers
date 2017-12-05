@@ -5,6 +5,7 @@ import { InstagramService } from './../../services/instagram.service';
 import  '../../../assets/js/influencer';
 declare var $: any;
 import { BsModalModule, BsModalService } from '../../../../node_modules/ng2-bs3-modal';
+import { AuthenticationService } from './../../services/authentication.service';
 
 @Component({
   selector: 'app-influencer',
@@ -20,9 +21,10 @@ export class InfluencerComponent implements OnInit {
   mediaid: string;
 
 
-  constructor(private _apiService:ApiService, private _instaService:InstagramService, private activatedRoute: ActivatedRoute, private router:Router) { }
+  constructor(private _apiService:ApiService, private _instaService:InstagramService, private activatedRoute: ActivatedRoute, private router:Router, private _service:AuthenticationService) { }
 
   ngOnInit() {
+    this._service.checkCredentials();
     this.activatedRoute.params.subscribe((params: Params) => {
         // VER INFLUENCER
         if(params['id']) {

@@ -15,15 +15,13 @@ import { SidebarComponent } from './components/layout/sidebar.component';
 
 import { InstagramService } from './services/instagram.service';
 import { ApiService } from './services/api.service';
+import { AuthenticationService } from './services/authentication.service';
 
 import { APP_ROUTING } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { MediaComponent } from './components/media/media.component';
 import { LoginComponent } from './components/login/login.component';
-
-//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import {BusyModule} from 'angular2-busy';
 
 @NgModule({
   declarations: [
@@ -36,7 +34,7 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     HttpModule, APP_ROUTING
   ],
-  providers: [ InstagramService, ApiService ],
+  providers: [ InstagramService, ApiService, AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
