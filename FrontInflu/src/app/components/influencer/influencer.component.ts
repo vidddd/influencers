@@ -32,40 +32,10 @@ export class InfluencerComponent implements OnInit {
           this.id = params['id'];
           this._apiService.getInfluencer(params['id'],params['page']).subscribe();
 
-        // ADD INFLUENCER
-        } else if (params['idins']) {
-/*
-            let disposable = this._apiService.addInfluencer(params['idins']).subscribe(data => {
-                     // VIENE ERROR DE INSTAGRAM
-                     if(data.meta) {
-                           $.notify({
-                               icon: 'ti-instagram',
-                               message: '<b>Instragran Api says:</b>  &nbsp; '+ data.meta.error_message
-                             },{
-                                 type: 'danger',
-                                 timer: 4000, placement: { from: 'top', align: 'center' }
-                             });
-                            this.router.navigate(['influencers']);
-                     // TODO OK GUARDANDO
-                     } else {
-                        // Redirigue a la
-                        setTimeout((router: Router) => {
-                            $.notify({
-                                icon: 'ti-instagram',
-                                message: 'Influencer added to the sysytem !!!'
-                              },{
-                                  type: 'success',
-                                  timer: 4000, placement: {from: 'top', align: 'center'}
-                              });
-                              this.router.navigate(['influencer/'+params['idins']]);
-                        }, 1500);
-                     }
-             });*/
-             /*
-             setTimeout(()=>{
-               disposable.unsubscribe();
-             },10000);*/
-       }
+          this._apiService.getInfluencerData(params['id']).subscribe();
+
+
+        }
       });
   }
 

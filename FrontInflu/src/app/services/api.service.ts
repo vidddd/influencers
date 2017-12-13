@@ -10,10 +10,12 @@ export class ApiService {
   influencers:any[] = [];
   influencers2:any[] = [];
   influencer: any;
+  influencerdata: any;
   res: any;
 
   urlGet:string = "https://influencers.tbwainnovation.com/api/get/influencers";
   urlGetUno:string = "https://influencers.tbwainnovation.com/api/get/influencer/";
+  urlGetUnoData:string = "https://influencers.tbwainnovation.com/api/get/influencer-data/";
   urlBusqueda:string = "https://influencers.tbwainnovation.com/api/search/influencers/";
   urlAddInfluencer:string  = "https://influencers.tbwainnovation.com/api/add/influencer/";
   urlGetPost:string = "https://influencers.tbwainnovation.com/api/get/post/";
@@ -77,4 +79,12 @@ export class ApiService {
     return this.http.get(url).toPromise().then( res => res.json());
   }
 
+  getInfluencerData(id:string)  {
+      let url = this.urlGetUnoData + id;
+      return this.http.get(url)
+                      .map((res:Response) => {
+                         this.influencerdata = res.json();
+                      })
+                      .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencerData'));
+  }
 }

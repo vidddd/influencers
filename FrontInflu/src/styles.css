@@ -97,3 +97,20 @@ button {
 .full-page .card .card-title, .card .stats, .card .category, .card .description, .card .social-line, .card .actions, .card .card-content, .card .card-footer, .card small, .card a {
     position: relative;
 }
+#media .lead {
+  font-size: 1.1em;
+  margin: 10px;
+}
+
+#media table {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.9em;
+}
+#media table th, #media table td {
+   padding:8px;
+}
+#media table .tag {
+  font-size: 1.05--em;
+  margin: 0 2px;
+}

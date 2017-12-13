@@ -1,4 +1,4 @@
-<div *ngIf="post" class="row animated fadeIn">
+<div *ngIf="post" class="row animated fadeIn" id="media">
   <div class="col-md-12 content">
       <div class="text-center" [ngSwitch]="post?.posts.type">
         <div *ngSwitchCase="'image'"><img [src]="post?.posts.images.standard_resolution.url" alt="" class="img-fluid rounded"/></div>
@@ -17,35 +17,34 @@
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <th scope="row">Url Instagram</th>
+            <th class="label2">Url Instagram</th>
             <td>{{ post?.posts.link }}</td>
-            <th scope="row">Type</th>
+            <th class="label2">Type</th>
             <td>{{ post?.posts.type }}</td>
           </tr>
           <tr>
-            <th scope="row">Date Publish</th>
+            <th class="label2">Date Publish</th>
             <td>{{ post?.posts.created_time * 1000 | date:'medium' }}</td>
-            <th scope="row">User has liked?</th>
+            <th class="label2">User has liked?</th>
             <td>{{ post?.posts.user_has_liked }}</td>
           </tr>
           <tr>
-            <th scope="row">Likes</th>
+            <th class="label2">Likes</th>
             <td>{{ post?.posts.likes.count }}</td>
-            <th scope="row">Comments</th>
+            <th class="label2">Comments</th>
             <td>{{ post?.posts.comments.count }}</td>
           </tr>
           <tr>
-            <th scope="row">Tags</th>
-            <td colspan="3">{{ post?.posts.tags }}</td>
+            <th>Tags</th>
+            <td colspan="3"><span class="tag text-primary" *ngFor="let tag of post?.posts.tags">#{{ tag }} </span> </td>
           </tr>
           <tr>
-            <th scope="row">Location</th>
-            <td >{{ post?.posts.location }}</td>
-            <th scope="row">Attribution</th>
+            <th class="label2">Location</th>
+            <td >{{ post?.posts.location?.name }}</td>
+            <th class="label2">Attribution</th>
             <td >{{ post?.posts.attribution }}</td>
           </tr>
         </tbody>
   </table>
-  {{ post?.posts.id }}
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-5">
+  <div class="col-lg-4">
     <div class="card card-user">
       <div class="image"><img [src]="_apiService.influencer?.profile_picture"/></div>
         <div class="content">
@@ -59,15 +59,56 @@
           </div>
       </div>
     </div>
-    <div class="col-lg-7">
-              <div class="card">
-                  <div class="header">
-                        <h4 class="title">Edit Profile</h4>
+    <div class="col-lg-8" *ngIf="_apiService?.influencerdata">
+      <div class="row">
+                  <div class="col-lg-3 col-sm-6">
+                      <div class="card">
+                          <div class="content">
+                                      <div class="numbers">
+                                          <p>Posts</p>
+                                        {{ _apiService?.influencerdata.result[0].totalpost }}
+                                      </div>
+                          </div>
+                      </div>
                   </div>
-                  <div class="content">
-                        <pre></pre>
+                  <div class="col-lg-3 col-sm-6">
+                      <div class="card">
+                          <div class="content">
+                                  <div class="col-xs-7">
+                                      <div class="numbers">
+                                          <p>Revenue</p>
+                                          $1,345
+                                      </div>
+                                  </div>
+                          </div>
+                      </div>
                   </div>
-                </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <div class="card">
+                          <div class="content">
+                                  <div class="col-xs-12 text-center">
+                                      <div class="numbers">
+                                          <p>Errors</p>
+                                          23
+                                      </div>
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <div class="card">
+                          <div class="content">
+                                  <div class="col-xs-7">
+                                      <div class="numbers">
+                                          <p>Followers</p>
+                                          +45
+                                      </div>
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        {{ _apiService?.influencerdata | json }}
     </div>
 </div>
 <div class="row content">
