@@ -18,8 +18,6 @@ export class MediaComponent implements OnInit, OnChanges  {
   }
 
   ngOnChanges() {
-    //console.log("OnChanges");
-    //console.log(this.id);
     if(this.id) {
       this._apiService.getMedia(this.id).subscribe(data => {
           this.post = data.result[0];
@@ -27,15 +25,4 @@ export class MediaComponent implements OnInit, OnChanges  {
     }
   }
 
-
-  /*
-  private _id = '';
-
-  @Input()
-  set id(id: string) {
-    this._id = (id && id.trim()) || '<no name set>';
-  }
-
-  get id(): string { return this._id; }
-*/
 }

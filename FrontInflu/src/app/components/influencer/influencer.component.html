@@ -59,56 +59,65 @@
           </div>
       </div>
     </div>
-    <div class="col-lg-8" *ngIf="_apiService?.influencerdata">
+    <div class="col-lg-8" *ngIf="metadata">
       <div class="row">
-                  <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="content">
+            <div class="col-lg-3 col-sm-6">
+                      <div class="card"><div class="content">
                                       <div class="numbers">
                                           <p>Posts</p>
-                                        {{ _apiService?.influencerdata.result[0].totalpost }}
+                                        {{ metadata.totalpost }}
                                       </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="content">
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                      <div class="card"><div class="content">
                                   <div class="col-xs-7">
                                       <div class="numbers">
-                                          <p>Revenue</p>
-                                          $1,345
+                                          <p>Media Comments by post</p>
+                                          {{ metadata.media_comments | number : '1.0-0' }}
                                       </div>
                                   </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="content">
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                      <div class="card"><div class="content">
                                   <div class="col-xs-12 text-center">
                                       <div class="numbers">
-                                          <p>Errors</p>
-                                          23
+                                          <p>Media likes by post</p>
+                                          {{ metadata.media_likes | number : '1.0-0' }}
                                       </div>
                                   </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="content">
+                      </div></div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                      <div class="card"><div class="content">
                                   <div class="col-xs-7">
                                       <div class="numbers">
                                           <p>Followers</p>
-                                          +45
+
                                       </div>
                                   </div>
-                          </div>
-                      </div>
+                      </div></div>
                   </div>
-              </div>
-        {{ _apiService?.influencerdata | json }}
+        </div>
+
+        <div class="row col-lg-12">
+              <div class="card" style="width:100%"><div class="header"><h4 class="title">Likes</h4></div>
+                            <div class="content">
+                                <div id="chart1" class="ct-chart"></div>
+                         </div>
+                   </div>
+        </div>
+        <div class="row col-lg-12">
+              <div class="card" style="width:100%"><div class="header"><h4 class="title">Comments</h4></div>
+                            <div class="content">
+                                <div id="chart2" class="ct-chart"></div>
+                         </div>
+                   </div>
+        </div>
+        {{ metadata | json }}
     </div>
 </div>
 <div class="row content">

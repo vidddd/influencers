@@ -82,9 +82,6 @@ export class ApiService {
   getInfluencerData(id:string)  {
       let url = this.urlGetUnoData + id;
       return this.http.get(url)
-                      .map((res:Response) => {
-                         this.influencerdata = res.json();
-                      })
-                      .catch((error:any) => Observable.throw(error.json().error || 'Server error ApiService.GetInfluencerData'));
+                      .map( res => res.json() );
   }
 }
