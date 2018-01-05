@@ -20,6 +20,7 @@ export class ApiService {
   urlAddInfluencer:string  = "https://influencers.tbwainnovation.com/api/add/influencer/";
   urlGetPost:string = "https://influencers.tbwainnovation.com/api/get/post/";
   urlDeleteInfluencer:string  = "https://influencers.tbwainnovation.com/api/delete/influencer/";
+  urlGetUnoCloudWords:string = "https://influencers.tbwainnovation.com/api/get/influencer-cloudwords/";
 
   constructor(private http:Http) { }
 
@@ -50,7 +51,8 @@ export class ApiService {
     }
 
   getInfluencer(id:string, page:number)  {
-      let url = this.urlGetUno + id + "/" + page;
+
+       let url = this.urlGetUno + id + "/" + page;
 
       return this.http.get(url)
                       .map((res:Response) => {
@@ -81,6 +83,12 @@ export class ApiService {
 
   getInfluencerData(id:string)  {
       let url = this.urlGetUnoData + id;
+      return this.http.get(url)
+                      .map( res => res.json() );
+  }
+
+  getInfluencerCloudWords(id:string)  {
+      let url = this.urlGetUnoCloudWords + id;
       return this.http.get(url)
                       .map( res => res.json() );
   }

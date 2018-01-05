@@ -1022,9 +1022,6 @@
 .ti-tumblr-alt:before {
 	content: "\e74c";
 }
-.ti-trello:before {
-	content: "\e74d";
-}
 .ti-stack-overflow:before {
 	content: "\e74e";
 }
@@ -1043,17 +1040,10 @@
 .ti-pinterest-alt:before {
 	content: "\e753";
 }
-.ti-microsoft-alt:before {
-	content: "\e754";
-}
-.ti-linux:before {
-	content: "\e755";
-}
+
+
 .ti-jsfiddle:before {
 	content: "\e756";
-}
-.ti-joomla:before {
-	content: "\e757";
 }
 .ti-html5:before {
 	content: "\e758";
@@ -1064,9 +1054,7 @@
 .ti-email:before {
 	content: "\e75a";
 }
-.ti-drupal:before {
-	content: "\e75b";
-}
+
 .ti-dropbox-alt:before {
 	content: "\e75c";
 }

@@ -114,3 +114,25 @@ button {
   font-size: 1.05--em;
   margin: 0 2px;
 }
+
+.cloud {
+    display: inline;
+    list-style-type: none;
+}
+.cloud li {
+    list-style: none;
+    display: inline;
+    color: #bf5454;
+    font-weight:bold;
+    margin: 0 10px;
+}
+
+.cloud li:nth-of-type(3n + 1) {
+    font-size: 1.3em;
+}
+.cloud li:nth-of-type(4n+3) {
+    font-size: 1.6em;
+}
+.cloud li:nth-of-type(5n - 3) {
+    font-size: 1.1em;
+}

@@ -17,7 +17,7 @@ export class InfluencerComponent implements OnInit, AfterViewInit {
   page: number = 0;
   media: any;
   mediaid: string;
-  metadata: any;
+  metadata: any; cloudwords:any= [];
 
 
   constructor(private _apiService:ApiService, private _instaService:InstagramService, private activatedRoute: ActivatedRoute, private router:Router, private _service:AuthenticationService) {
@@ -31,14 +31,21 @@ export class InfluencerComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
     this.activatedRoute.params.subscribe((params: Params) => {
+        let page = 0;
         // VER INFLUENCER
         if(params['id']) {
           this.id = params['id'];
-          this._apiService.getInfluencer(params['id'],params['page']).subscribe();
+          if(params['page']) page = params['page'];
+          this._apiService.getInfluencer(params['id'],page).subscribe();
           this._apiService.getInfluencerData(params['id']).subscribe(data => {
               this.metadata = data.result[0];
                   this.showCharts();
             });
+          this._apiService.getInfluencerCloudWords(params['id']).subscribe(data => {
+                for (var key in data) {
+                      this.cloudwords.push(key);
+                  }
+              });
         }
       });
 
