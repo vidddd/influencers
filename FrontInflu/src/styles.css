@@ -136,3 +136,15 @@ button {
 .cloud li:nth-of-type(5n - 3) {
     font-size: 1.1em;
 }
+
+
+.cardtop .numbers {
+  font-size: 15px;
+  font-weight:bold;
+  width: 40px;
+  float:left;
+}
+.cardtop .numbers p {
+  font-size: 12px;
+  font-weight: normal;
+}

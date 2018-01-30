@@ -60,62 +60,88 @@
       </div>
     </div>
     <div class="col-lg-8" *ngIf="metadata">
+      <div class="row"><div class="card cardtop"><div class="container-fluid">
+                    <div class="col">
+                       <div class="numbers">
+                              <p>Posts</p>{{ metadata.totalpost }}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="numbers">
+                          <p>Reach</p>{{ _apiService.influencer?.counts?.followed_by | number }}
+                        </div>
+                    </div>
+                    <div class="col">
+                      <div class="numbers">
+                        <p>Media Comments by post</p>{{ metadata.media_comments | number : '1.0-0' }}
+                      </div>
+                   </div>
+                   <div class="col">
+                      <div class="numbers">
+                        <p>Media likes by post</p>{{ metadata.media_likes | number : '1.0-0' }}
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="numbers">
+                          <p>Followers</p>
+                      </div>
+                  </div>
+                </div></div>
+      </div>
       <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                  <div class="card"><div class="content">
-                                      <div class="numbers">
-                                          <p>Posts</p>
-                                        {{ metadata.totalpost }}
-                                      </div>
+            <div class="col-lg-2 col-sm-6">
+                  <div class="card cardtop"><div class="content">
+                      <div class="numbers">
+                              <p>Posts {{ metadata.totalpost }}</p>
                           </div>
+                      </div>
                   </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card"><div class="content">
-                        <div class="col-xs-7">
-                                      <div class="numbers">
-                                          <p>Media Comments by post</p>
-                                          {{ metadata.media_comments | number : '1.0-0' }}
-                                      </div>
-                                  </div>
-                          </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="card cardtop"><div class="content">
+                        <div class="numbers">
+                          <p>Reach</p>{{ _apiService.influencer?.counts?.followed_by | number }}
+                        </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card"><div class="content">
-                                  <div class="col-xs-12 text-center">
-                                      <div class="numbers">
-                                          <p>Media likes by post</p>
-                                          {{ metadata.media_likes | number : '1.0-0' }}
-                                      </div>
-                                  </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="card cardtop"><div class="content">
+                      <div class="numbers">
+                        <p>Media Comments by post</p>{{ metadata.media_comments | number : '1.0-0' }}
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="card cardtop"><div class="content">
+                      <div class="numbers">
+                        <p>Media likes by post</p>{{ metadata.media_likes | number : '1.0-0' }}
+                      </div>
                   </div></div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card"><div class="content">
-                                  <div class="col-xs-7">
-                                      <div class="numbers">
-                                          <p>Followers</p>
-
-                                      </div>
-                                  </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="card cardtop"><div class="content">
+                      <div class="numbers">
+                          <p>Followers</p>
+                      </div>
                 </div></div>
             </div>
         </div>
 
         <div class="row col-lg-12">
-              <div class="card" style="width:100%"><div class="header"><h4 class="title">Likes</h4></div>
-                            <div class="content">
-                                <div id="chart1" class="ct-chart"></div>
-                         </div>
-                   </div>
+          <div class="card" style="width:100%"><div class="header"><h4 class="title">Likes</h4></div>
+                <div class="content">
+                    <div id="chart1" class="ct-chart"></div>
+                </div>
+          </div>
         </div>
         <div class="row col-lg-12">
-              <div class="card" style="width:100%"><div class="header"><h4 class="title">Comments</h4></div>
-                            <div class="content">
-                                <div id="chart2" class="ct-chart"></div>
-                         </div>
-                   </div>
+          <div class="card" style="width:100%"><div class="header"><h4 class="title">Comments</h4></div>
+            <div class="content">
+              <div id="chart2" class="ct-chart"></div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="card" style="width:100%"><div class="header"><h4 class="title">Popular words in all post</h4></div>
